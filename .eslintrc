@@ -1,0 +1,31 @@
+// -*- mode: json -*-
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "setTimeout": true,
+    "window": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "arrow-body-style": 0,
+    "comma-dangle": [1, "only-multiline"],
+    "indent": ["error", 2, {"SwitchCase": 1}],
+    "jsx-quotes": [2, "prefer-double"],
+    "no-confusing-arrow": 0,
+    "no-console": 0,
+    "no-param-reassign": [2, {"props": false}],
+    "no-shadow": 0,
+    "no-underscore-dangle": 0,
+    "react/jsx-closing-bracket-location": 0,
+    "react/jsx-indent-props": 0,
+    "react/jsx-no-bind": 0,
+    "react/jsx-quotes": 0,
+    "react/no-multi-comp": 0
+  }
+}
