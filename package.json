@@ -1,11 +1,11 @@
 {
   "name": "dash-i18n",
-  "version": "1.0.0",
-  "description": "A layman's internationalization (i18n) module for JavaScript",
+  "version": "0.5.0",
+  "description": "A concise but good-enough-for-almost-everything internationalization (i18n) module for JavaScript",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src -d lib",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": "https://github.com/myoshida/dash-i18n/issues",
