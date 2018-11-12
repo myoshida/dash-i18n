@@ -1,3 +1,8 @@
+/** @license dash-i18n
+ * Copyright (c) 2016-2018 Masakazu Yoshida.
+ * This source code is licensed under The MIT License (MIT).
+ */
+
 export function translate(map, key, locale, props = {}, sep = '.') {
   function getMessage(v) {
     const t = typeof v;
