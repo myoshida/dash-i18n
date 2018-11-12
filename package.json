@@ -1,6 +1,6 @@
 {
   "name": "dash-i18n",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A concise but good-enough-for-almost-everything internationalization (i18n) module for JavaScript",
   "main": "lib/index.js",
   "scripts": {
