@@ -1,7 +1,17 @@
 {
-  "presets": ["env", "react"],
-  "plugins": [
-    "transform-flow-strip-types",
-    "transform-object-rest-spread"
+  "env": {
+    "test": {
+      "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+      ],
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+      ]
+    }
+  },
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
   ]
 }
