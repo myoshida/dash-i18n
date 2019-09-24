@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src -d lib",
     "prepare": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest"
   },
   "bugs": "https://github.com/myoshida/dash-i18n/issues",
   "keywords": [

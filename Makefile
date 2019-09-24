@@ -3,7 +3,10 @@
 all:	clean build
 
 build:
-	npm run build
+	yarn run build
+
+test:
+	yarn run test
 
 clean:
 	rm -fr lib
