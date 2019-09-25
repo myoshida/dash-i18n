@@ -1,5 +1,5 @@
 /** @license dash-i18n
- * Copyright (c) 2016-2018 Masakazu Yoshida.
+ * Copyright (c) 2016-2019 Masakazu Yoshida.
  * This source code is licensed under The MIT License (MIT).
  */
 
@@ -20,10 +20,8 @@ export function translate(map, key, locale, props = {}, sep = '.') {
 
   function tryLocale(locale) {
     const k = `${key}${sep}${locale}`;
-    if (map.hasOwnProperty(k)) {
-      return getMessage(map[k]);
-    }
-    return null;
+    const v = map.get(k);
+    return v ? getMessage(v) : null;
   }
 
   const res = tryLocale(locale);
@@ -39,16 +37,26 @@ export function translate(map, key, locale, props = {}, sep = '.') {
 
 class Translator {
   constructor({
-    messages = {}, locale = 'en', fallbackLocale = 'en', sep = '.',
+    messages = {},
+    messageList = [],
+    locale = 'en',
+    fallbackLocale = 'en',
+    sep = '.',
   }) {
-    this.map = messages;
+    this.map = new Map();
+    this.addMessages(messages);
+    this.addMessageList(messageList);
     this.locale = locale;
     this.fallback = fallbackLocale;
     this.sep = sep;
   }
 
   addMessages(map) {
-    Object.assign(this.map, map);
+    Object.keys(map).forEach(k => this.map.set(k, map[k]));
+  }
+
+  addMessageList(lst) {
+    lst.forEach(([k, v]) => this.map.set(k, v));
   }
 
   setLocale(locale) {
@@ -57,12 +65,15 @@ class Translator {
 
   tr(key, props = {}) {
     const { locale = this.locale } = props;
-    const res = translate(this.map, key, locale, props, this.sep);
+    const map = this.map;
+    const fallback = this.fallback;
+    const sep = this.sep;
+    const res = translate(map, key, locale, props, sep);
     if (res !== null) {
       return res;
     }
-    if (typeof this.fallback === 'string') {
-      return translate(this.map, key, this.fallback, props, this.sep);
+    if (typeof fallback === 'string') {
+      return translate(map, key, fallback, props, sep);
     }
     console.warn(`i18n.tr: error: key='${key}'`, props);
     return null;
@@ -71,6 +82,4 @@ class Translator {
 
 Translator.prototype._ = Translator.prototype.tr;  // add an alias method
 
-export function createTranslator(opts = {}) {
-  return new Translator(opts);
-}
+export const createTranslator = (opts = {}) => new Translator(opts);
