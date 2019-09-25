@@ -26,6 +26,7 @@ DSTDIR=../docs
 
 install:
 	rsync -avz --delete $(SRCDIR) $(DSTDIR)
+	touch $(DSTDIR)/.nojekyll
 
 clean:
 	rm -fr _build
