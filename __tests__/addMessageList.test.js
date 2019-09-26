@@ -1,6 +1,6 @@
 import { createTranslator } from '../src';
 
-test('meessageList: constructor option', () => {
+test('messageList: constructor option', () => {
   const t = createTranslator({
     messageList: [
       ['a.b.en', 'a.b.en'],
