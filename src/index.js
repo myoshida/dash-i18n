@@ -4,26 +4,19 @@
  */
 
 export function translate(map, key, locale, props = {}, sep = '.') {
-  function getMessage(v) {
-    const t = typeof v;
-    if (t === 'string') {
-      return v;
+  const getMessage = v => {
+    switch (typeof v) {
+    case 'string': return v;
+    case 'function': return getMessage(v(props));
+    default:
+      return Array.isArray(v) ? v.join('') : null;
     }
-    if (Array.isArray(v)) {
-      return v.join('');
-    }
-    if (t === 'function') {
-      return getMessage(v(props));
-    }
-    return null;
-  }
-
-  function tryLocale(locale) {
+  };
+  const tryLocale = locale => {
     const k = `${key}${sep}${locale}`;
     const v = map.get(k);
     return v ? getMessage(v) : null;
-  }
-
+  };
   const res = tryLocale(locale);
   if (res !== null) {
     return res;
