@@ -162,8 +162,8 @@
 <span class="nx">myTranslator</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">(</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span> <span class="p">);</span>
 </pre></div>
 </div>
-<p>Create a new Translator object and returns it.
-This factory function accepts an opitional object argument:</p>
+<p>Creates a new Translator object and returns it.  This factory function
+accepts an opitional object argument:</p>
 <table class="docutils align-center">
 <colgroup>
 <col style="width: 26%" />
@@ -187,7 +187,7 @@ This factory function accepts an opitional object argument:</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'en'</span></code></p></td>
-<td><p>Initial locale (String)</p></td>
+<td><p>Initial locale – language code (String)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fallbackLocale</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'en'</span></code></p></td>
@@ -361,11 +361,13 @@ object to translate messages.</p>
 </pre></div>
 </div>
 <p>The method function <code class="docutils literal notranslate"><span class="pre">tr</span></code> returns the message for the given resource
-key (string) with the current locale.  If no message resource is
-found, then this function returns <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
-<p>If the value of resource is a function (closure), then
-the optional second argument will be passed to the function
-and the return value of the function will be returned.</p>
+key (string) with the current locale.  When there is no message
+resource matches to the key and the current locale (language
+code), the fallback locale (language code) will be used to retry.</p>
+<p>If the value of resource is a function (closure), then the optional
+second argument will be passed to the function and the return value of
+the function will be returned.</p>
+<p>If no message resource is found, then this function returns <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
 <p>Example:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myTranslator</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">({</span>
   <span class="nx">messages</span><span class="o">:</span> <span class="p">{</span>
@@ -382,6 +384,7 @@ and the return value of the function will be returned.</p>
 <span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;こんにちは世界！&#39;</span>
 <span class="nx">myTranslator</span><span class="p">.</span><span class="nx">setLocale</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">);</span>
 <span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting.personalized&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Dave&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;Hello, Dave&#39;</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;notFound&#39;</span><span class="p">);</span>  <span class="c1">// → null</span>
 </pre></div>
 </div>
 </div>

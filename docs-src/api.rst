@@ -14,15 +14,15 @@ createTranslator
    import { createTranslator } from 'dash-i18n';
    myTranslator = createTranslator( [options] );
 
-Create a new Translator object and returns it.
-This factory function accepts an opitional object argument:
+Creates a new Translator object and returns it.  This factory function
+accepts an opitional object argument:
 
 ==================== ========== ========================================
 Key                  Default    Value                         
 ==================== ========== ========================================
 ``messages``         ``{}``     Message resources (JavaScript Object key-values)
 ``messageList``      ``[]``     Message resources (``[key, value]`` array)
-``locale``           ``'en'``   Initial locale (String)
+``locale``           ``'en'``   Initial locale -- language code (String)
 ``fallbackLocale``   ``'en'``   Initial fallback locale (String)
 ``sep``              ``'.'``    Separator for resource key and locale  (String)
 ==================== ========== ========================================
@@ -224,12 +224,15 @@ tr
    myTranslator.tr( key [, props]);
 
 The method function ``tr`` returns the message for the given resource
-key (string) with the current locale.  If no message resource is
-found, then this function returns ``null``.
+key (string) with the current locale.  When there is no message
+resource matches to the key and the current locale (language
+code), the fallback locale (language code) will be used to retry.
 
-If the value of resource is a function (closure), then
-the optional second argument will be passed to the function
-and the return value of the function will be returned.
+If the value of resource is a function (closure), then the optional
+second argument will be passed to the function and the return value of
+the function will be returned.
+
+If no message resource is found, then this function returns ``null``.
 
 Example:
 
@@ -250,3 +253,4 @@ Example:
    myTranslator.tr('greeting');  // → 'こんにちは世界！'
    myTranslator.setLocale('en');
    myTranslator.tr('greeting.personalized', { name: 'Dave');  // → 'Hello, Dave'
+   myTranslator.tr('notFound');  // → null
