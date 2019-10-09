@@ -29,8 +29,5 @@ Install with yarn:
 
 ## To-dos
 
-- Add a "Hello World" sample.
+- Add CircleCI badge to README.md.
 
-- Add regression tests.
-
-- Add an API documentation.
