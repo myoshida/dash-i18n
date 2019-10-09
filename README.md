@@ -22,12 +22,9 @@ Install with yarn:
 
 ## Release History
 
-* v0.5.0 Preliminary release (The code works beautifully but needs
-  some decent documentations.)
+* v0.5.1 Preliminary release
 
-* Forked from dash-ui v0.0.4 (since 2016-02-24); Not yet released.
-
-## To-dos
+## To-Dos
 
 - Add CircleCI badge to README.md.
 
