@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API &mdash; dash-i18n  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> dash-i18n
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#createtranslator">createTranslator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#addmessages">addMessages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#addmessagelist">addMessageList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setlocale">setLocale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tr">tr</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dash-i18n</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="createtranslator">
+<span id="id1"></span><h2>createTranslator<a class="headerlink" href="#createtranslator" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">createTranslator</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;dash-i18n&#39;</span><span class="p">;</span>
+<span class="nx">myTranslator</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">(</span> <span class="p">[</span><span class="nx">options</span><span class="p">]</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>Create a new Translator object and returns it.
+This factory function accepts an opitional object argument:</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 13%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">messages</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{}</span></code></p></td>
+<td><p>Message resources (JavaScript Object key-values)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">messageList</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td><p>Message resources (<code class="docutils literal notranslate"><span class="pre">[key,</span> <span class="pre">value]</span></code> array)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">locale</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'en'</span></code></p></td>
+<td><p>Initial locale (String)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fallbackLocale</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'en'</span></code></p></td>
+<td><p>Initial fallback locale (String)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sep</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'.'</span></code></p></td>
+<td><p>Separator for resource key and locale  (String)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The prop <code class="docutils literal notranslate"><span class="pre">messages</span></code> specifies the initial message resources
+represented in the JavaScript Object key-value pairs.
+See <a class="reference internal" href="#addmessages"><span class="std std-ref">addMessages</span></a> for the details.</p>
+<p>The prop <code class="docutils literal notranslate"><span class="pre">messageList</span></code> specifies the initial message resources
+represented in <code class="docutils literal notranslate"><span class="pre">[key,</span> <span class="pre">value]</span></code> array.
+See <a class="reference internal" href="#addmessagelist"><span class="std std-ref">addMessageList</span></a> for the details.</p>
+<p>The prop <code class="docutils literal notranslate"><span class="pre">locale</span></code> specifies the initial locale value which
+defaults to <code class="docutils literal notranslate"><span class="pre">'en'</span></code>.</p>
+<p>The prop <code class="docutils literal notranslate"><span class="pre">fallbackLocale</span></code> specifies the initial fallback locale
+value which defaults to <code class="docutils literal notranslate"><span class="pre">'en'</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The fallback locale is the supplemental locale which will be tried
+when the query with the current locale fails.</p>
+</div>
+<p>The prop <code class="docutils literal notranslate"><span class="pre">sep</span></code> specifies the separator string to separate
+the last locale component in keys.
+The value of the separator defaults to <code class="docutils literal notranslate"><span class="pre">'.'</span></code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you choose <code class="docutils literal notranslate"><span class="pre">'_'</span></code> (underscore) as a separator, then the keys
+can be represented strings which equivalent to JavaScript
+identifiers. In that case, you can omit quotes around the keys.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myTranslator</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">({</span> <span class="nx">messages</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s1">&#39;greeting.morning.en&#39;</span><span class="o">:</span> <span class="s1">&#39;Good morning&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;greeting.morning.ja&#39;</span><span class="o">:</span> <span class="s1">&#39;おはよう&#39;</span><span class="p">,</span>
+<span class="p">}});</span>
+
+<span class="kr">const</span> <span class="nx">myTranslator2</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">({</span> <span class="nx">messageList</span><span class="o">:</span> <span class="p">[</span>
+  <span class="p">[</span><span class="s1">&#39;greeting.evening.en&#39;</span><span class="p">,</span> <span class="s1">&#39;Good evening&#39;</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">&#39;greeting.evening.ja&#39;</span><span class="p">,</span> <span class="s1">&#39;こんばんは&#39;</span><span class="p">],</span>
+<span class="p">}});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="addmessages">
+<span id="id2"></span><h2>addMessages<a class="headerlink" href="#addmessages" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">myTranslator</span><span class="p">.</span><span class="nx">addMessages</span><span class="p">(</span> <span class="nx">messages</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>The method function <code class="docutils literal notranslate"><span class="pre">addMessages</span></code> adds message resources to the
+translator object via a JavaScript Object key-values.</p>
+<p>The message resources are represented as key-value pairs in
+a JavaScript Object <code class="docutils literal notranslate"><span class="pre">messages</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The key of a message resource designates a certain
+internationalization (i18n) message.  The key must be an unique
+string and end with <code class="docutils literal notranslate"><span class="pre">${separator}${locale}</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">'.en'</span></code>).</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can use any string as a separator.  (See
+<a class="reference internal" href="#createtranslator"><span class="std std-ref">createTranslator</span></a> for the details.)</p>
+</div>
+<p>The value of a message resource can be a string, an array of
+strings, or a function (closure).</p>
+<p>When the value of a message resource is an array of strings, all
+the strings are concatenated.  This is a convenient way to write a
+long, mult-line message.</p>
+<p>When the value of a message resource is a function, the function
+will be evaluated with a supplemental argument <code class="docutils literal notranslate"><span class="pre">props</span></code>.  The
+function must return a string.  (See <a class="reference internal" href="#tr"><span class="std std-ref">tr</span></a> for the further
+details.)</p>
+</div>
+<p>Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myTranslator</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">();</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">addMessage</span><span class="p">({</span>
+  <span class="s1">&#39;greeting.morning.en&#39;</span><span class="o">:</span> <span class="s1">&#39;Good morning&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;greeting.morning.ja&#39;</span><span class="o">:</span> <span class="s1">&#39;おはよう&#39;</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">addMessage</span><span class="p">({</span>
+  <span class="s1">&#39;greeting.evening.en&#39;</span><span class="o">:</span> <span class="s1">&#39;Good evening&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;greeting.evening.ja&#39;</span><span class="o">:</span> <span class="s1">&#39;こんばんは&#39;</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting.morning&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;Good morning&#39;</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">setLocale</span><span class="p">(</span><span class="s1">&#39;ja&#39;</span><span class="p">);</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting.evening&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;こんばんは&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you add a message resource which has the key already registered
+in your translator object, then it shadows the previous one.</p>
+</div>
+</div>
+<div class="section" id="addmessagelist">
+<span id="id3"></span><h2>addMessageList<a class="headerlink" href="#addmessagelist" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">myTranslator</span><span class="p">.</span><span class="nx">addMessages</span><span class="p">(</span> <span class="nx">messageList</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>The method function <code class="docutils literal notranslate"><span class="pre">addMessageList</span></code> adds message resources to the
+translator object via a <code class="docutils literal notranslate"><span class="pre">[key,</span> <span class="pre">value]</span></code> array.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The key of a message resource designates a certain
+internationalization (i18n) message.  The key must be an unique
+string and end with <code class="docutils literal notranslate"><span class="pre">${separator}${locale}</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">'.en'</span></code>).</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can use any string as a separator.  (See
+<a class="reference internal" href="#createtranslator"><span class="std std-ref">createTranslator</span></a> for the details.)</p>
+</div>
+<p>The value of a message resource can be a string, an array of
+strings, or a function (closure).</p>
+<p>When the value of a message resource is an array of strings, all
+the strings are concatenated.  This is a convenient way to write a
+long, mult-line message.</p>
+<p>When the value of a message resource is a function, the function
+will be evaluated with a supplemental argument <code class="docutils literal notranslate"><span class="pre">props</span></code>.  The
+function must return a string.  (See <a class="reference internal" href="#tr"><span class="std std-ref">tr</span></a> for the further
+details.)</p>
+</div>
+<p>Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myTranslator</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">();</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">addMessage</span><span class="p">([</span>
+  <span class="p">[</span><span class="s1">&#39;greeting.morning.en&#39;</span><span class="p">,</span> <span class="s1">&#39;Good morning&#39;</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">&#39;greeting.morning.ja&#39;</span><span class="p">,</span> <span class="s1">&#39;おはよう&#39;</span><span class="p">],</span>
+<span class="p">});</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">addMessage</span><span class="p">([</span>
+  <span class="p">[</span><span class="s1">&#39;greeting.evening.en&#39;</span><span class="p">,</span> <span class="s1">&#39;Good evening&#39;</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">&#39;greeting.evening.ja&#39;</span><span class="p">,</span> <span class="s1">&#39;こんばんは&#39;</span><span class="p">],</span>
+<span class="p">]);</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting.morning&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;Good morning&#39;</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">setLocale</span><span class="p">(</span><span class="s1">&#39;ja&#39;</span><span class="p">);</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting.morning&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;おはよう&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you add a message resource which has the key already registered
+in your translator object, then it shadows the previous one.</p>
+</div>
+</div>
+<div class="section" id="setlocale">
+<h2>setLocale<a class="headerlink" href="#setlocale" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">myTranslator</span><span class="p">.</span><span class="nx">setLocale</span><span class="p">(</span> <span class="nx">locale</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>The method function <code class="docutils literal notranslate"><span class="pre">setLocale</span></code> sets the locale of the translaor
+object to translate messages.</p>
+<p>Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myTranslator</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">({</span>
+  <span class="nx">messages</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s1">&#39;greeting.morning.en&#39;</span><span class="o">:</span> <span class="s1">&#39;Good morning&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;greeting.morning.ja&#39;</span><span class="o">:</span> <span class="s1">&#39;おはよう&#39;</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting.morning&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;Good morning&#39;</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">setLocale</span><span class="p">(</span><span class="s1">&#39;ja&#39;</span><span class="p">);</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting.morning&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;おはよう&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tr">
+<span id="id4"></span><h2>tr<a class="headerlink" href="#tr" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span> <span class="nx">key</span> <span class="p">[,</span> <span class="nx">props</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>The method function <code class="docutils literal notranslate"><span class="pre">tr</span></code> returns the message for the given resource
+key (string) with the current locale.  If no message resource is
+found, then this function returns <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<p>If the value of resource is a function (closure), then
+the optional second argument will be passed to the function
+and the return value of the function will be returned.</p>
+<p>Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myTranslator</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">({</span>
+  <span class="nx">messages</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s1">&#39;greeting.en&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Hello, &#39;</span><span class="p">,</span> <span class="s1">&#39;world!&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;greeting.ja&#39;</span><span class="o">:</span> <span class="s1">&#39;こんにちは世界！&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;greeting.personalized.en&#39;</span><span class="o">:</span> <span class="nx">props</span> <span class="p">=&gt;</span> <span class="p">{</span>
+       <span class="kr">const</span> <span class="p">{</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Unknown&#39;</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">props</span><span class="p">;</span>
+       <span class="k">return</span> <span class="sb">`Hello, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;Hello, world!&#39;</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">setLocale</span><span class="p">(</span><span class="s1">&#39;ja&#39;</span><span class="p">);</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;こんにちは世界！&#39;</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">setLocale</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">);</span>
+<span class="nx">myTranslator</span><span class="p">.</span><span class="nx">tr</span><span class="p">(</span><span class="s1">&#39;greeting.personalized&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Dave&#39;</span><span class="p">);</span>  <span class="c1">// → &#39;Hello, Dave&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Masakazu Yoshida
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
