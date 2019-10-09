@@ -16,11 +16,9 @@ Install with yarn:
   yarn add dash-i18n
 ```
 
-## Basic Usage ("Hello World")
+## Documentation
 
-```javascript
-Now Printing...
-```
+[The documentation of dash-i18n](https://myoshida.github.io/dash-i18n/)
 
 ## Release History
 
