@@ -11,6 +11,7 @@ Welcome to dash-i18n's documentation!
    :caption: Contents:
 
    getting_started.rst
+   api.rst
 
 Indices and tables
 ==================

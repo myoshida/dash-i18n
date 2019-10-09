@@ -34,8 +34,8 @@ Quick start
      'greeting.morning.en': 'Morning!',
      'greeting.morning.ja': 'おはよう！',
    };
-   const translator = createTranslator( { messages, fallbackLocale: 'en' });
-   export const setLocale = translator.setLocale(translator);
+   const translator = createTranslator( { messages });
+   export const setLocale = translator.setLocale.bind(translator);
    export const tr = translator.tr.bind(translator);
 
    // setLocale('ja');
