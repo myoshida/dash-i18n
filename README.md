@@ -1,6 +1,12 @@
 # dash-i18n
 
-A concise but good-enough-for-almost-everything internationalization (i18n) module for JavaScript
+Dash-i18n is a concise internationalization (i18n) library for
+JavaScript.  But it is good enough for almost everything.
+
+If you have a large project and you are a perfectionist, you may be
+happy with a full-fledged i18n framework.  Otherwise we believe
+dash-i18n is good for most use cases.
+
 
 ## Installation
 
