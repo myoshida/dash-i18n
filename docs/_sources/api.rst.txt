@@ -1,6 +1,6 @@
-===
-API
-===
+==============
+JavaScript API
+==============
 
 .. highlight:: javascript
 
@@ -15,10 +15,11 @@ createTranslator
    myTranslator = createTranslator( [options] );
 
 Creates a new Translator object and returns it.  This factory function
-accepts an opitional object argument:
+accepts an optional JavaScript Object argument ``options``.
+You can specify the following properties:
 
 ==================== ========== ========================================
-Key                  Default    Value                         
+Prop                 Default    Value                         
 ==================== ========== ========================================
 ``messages``         ``{}``     Message resources (JavaScript Object key-values)
 ``messageList``      ``[]``     Message resources (``[key, value]`` array)
@@ -52,7 +53,7 @@ The value of the separator defaults to ``'.'``.
 
 .. hint::
 
-   If you choose ``'_'`` (underscore) as a separator, then the keys
+   If you choose ``'_'`` (underscore) as a separator, then keys
    can be represented strings which equivalent to JavaScript
    identifiers. In that case, you can omit quotes around the keys.
 
@@ -60,15 +61,22 @@ Example:
 
 ::
 
-   const myTranslator = createTranslator({ messages: {
-     'greeting.morning.en': 'Good morning',
-     'greeting.morning.ja': 'おはよう',
-   }});
+   const myTranslator = createTranslator({
+     messages: {
+       greeting_morning_en: 'Good morning',
+       greeting_morning_ja: 'おはよう',
+     },
+     sep: '_',
+   });
    
-   const myTranslator2 = createTranslator({ messageList: [
-     ['greeting.evening.en', 'Good evening'],
-     ['greeting.evening.ja', 'こんばんは'],
-   }});
+   const myTranslator2 = createTranslator({
+     locale: 'ja',
+     fallbackLocale: 'ja',
+     messageList: [
+       ['greeting.evening.en', 'Good evening'],
+       ['greeting.evening.ja', 'こんばんは'],
+     ],
+   });
 
 
 .. _addMessages:

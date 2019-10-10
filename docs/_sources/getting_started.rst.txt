@@ -20,8 +20,10 @@ Or, install dash-i18n using :command:`yarn`:
    $ yarn add dash-i18n
 
 
-Quick start
------------
+Quick start example
+-------------------
+
+The following is an example to quickly grasp how to use dash-i18n:
 
 .. highlight:: javascript
 
@@ -36,11 +38,11 @@ Quick start
    };
    const translator = createTranslator( { messages });
    export const setLocale = translator.setLocale.bind(translator);
-   export const tr = translator.tr.bind(translator);
+   export const _ = translator.tr.bind(translator);
 
    // setLocale('ja');
-   // tr('greeting')  → 'こんにちは！'
-   // tr('greeting.morning')  → 'おはよう！'
+   // _('greeting')  → 'こんにちは！'
+   // _('greeting.morning')  → 'おはよう！'
    // setLocale('en');
-   // tr('greeting')  → 'Hello!'
-   // tr('greeting.morning')  → 'Morning!'
+   // _('greeting')  → 'Hello!'
+   // _('greeting.morning')  → 'Morning!'

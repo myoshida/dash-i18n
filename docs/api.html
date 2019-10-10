@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API &mdash; dash-i18n  documentation</title>
+  <title>JavaScript API &mdash; dash-i18n  documentation</title>
   
 
   
@@ -81,8 +81,9 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">JavaScript API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#createtranslator">createTranslator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#addmessages">addMessages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#addmessagelist">addMessageList</a></li>
@@ -135,7 +136,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>API</li>
+      <li>JavaScript API</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -154,8 +155,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="api">
-<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="javascript-api">
+<h1>JavaScript API<a class="headerlink" href="#javascript-api" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="createtranslator">
 <span id="id1"></span><h2>createTranslator<a class="headerlink" href="#createtranslator" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">createTranslator</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;dash-i18n&#39;</span><span class="p">;</span>
@@ -163,7 +164,8 @@
 </pre></div>
 </div>
 <p>Creates a new Translator object and returns it.  This factory function
-accepts an opitional object argument:</p>
+accepts an optional JavaScript Object argument <code class="docutils literal notranslate"><span class="pre">options</span></code>.
+You can specify the following properties:</p>
 <table class="docutils align-center">
 <colgroup>
 <col style="width: 26%" />
@@ -171,7 +173,7 @@ accepts an opitional object argument:</p>
 <col style="width: 62%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Key</p></th>
+<tr class="row-odd"><th class="head"><p>Prop</p></th>
 <th class="head"><p>Default</p></th>
 <th class="head"><p>Value</p></th>
 </tr>
@@ -219,20 +221,27 @@ the last locale component in keys.
 The value of the separator defaults to <code class="docutils literal notranslate"><span class="pre">'.'</span></code>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>If you choose <code class="docutils literal notranslate"><span class="pre">'_'</span></code> (underscore) as a separator, then the keys
+<p>If you choose <code class="docutils literal notranslate"><span class="pre">'_'</span></code> (underscore) as a separator, then keys
 can be represented strings which equivalent to JavaScript
 identifiers. In that case, you can omit quotes around the keys.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myTranslator</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">({</span> <span class="nx">messages</span><span class="o">:</span> <span class="p">{</span>
-  <span class="s1">&#39;greeting.morning.en&#39;</span><span class="o">:</span> <span class="s1">&#39;Good morning&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;greeting.morning.ja&#39;</span><span class="o">:</span> <span class="s1">&#39;おはよう&#39;</span><span class="p">,</span>
-<span class="p">}});</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myTranslator</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">({</span>
+  <span class="nx">messages</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">greeting_morning_en</span><span class="o">:</span> <span class="s1">&#39;Good morning&#39;</span><span class="p">,</span>
+    <span class="nx">greeting_morning_ja</span><span class="o">:</span> <span class="s1">&#39;おはよう&#39;</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">sep</span><span class="o">:</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span>
+<span class="p">});</span>
 
-<span class="kr">const</span> <span class="nx">myTranslator2</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">({</span> <span class="nx">messageList</span><span class="o">:</span> <span class="p">[</span>
-  <span class="p">[</span><span class="s1">&#39;greeting.evening.en&#39;</span><span class="p">,</span> <span class="s1">&#39;Good evening&#39;</span><span class="p">],</span>
-  <span class="p">[</span><span class="s1">&#39;greeting.evening.ja&#39;</span><span class="p">,</span> <span class="s1">&#39;こんばんは&#39;</span><span class="p">],</span>
-<span class="p">}});</span>
+<span class="kr">const</span> <span class="nx">myTranslator2</span> <span class="o">=</span> <span class="nx">createTranslator</span><span class="p">({</span>
+  <span class="nx">locale</span><span class="o">:</span> <span class="s1">&#39;ja&#39;</span><span class="p">,</span>
+  <span class="nx">fallbackLocale</span><span class="o">:</span> <span class="s1">&#39;ja&#39;</span><span class="p">,</span>
+  <span class="nx">messageList</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;greeting.evening.en&#39;</span><span class="p">,</span> <span class="s1">&#39;Good evening&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;greeting.evening.ja&#39;</span><span class="p">,</span> <span class="s1">&#39;こんばんは&#39;</span><span class="p">],</span>
+  <span class="p">],</span>
+<span class="p">});</span>
 </pre></div>
 </div>
 </div>

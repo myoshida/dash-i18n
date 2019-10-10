@@ -10,6 +10,7 @@ Welcome to dash-i18n's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   overview.rst
    getting_started.rst
    api.rst
 

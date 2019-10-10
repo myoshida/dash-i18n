@@ -27,4 +27,3 @@ Install with yarn:
 ## To-Dos
 
 - Add CircleCI badge to README.md.
-
